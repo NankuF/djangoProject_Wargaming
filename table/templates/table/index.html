@@ -2,15 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    <h1>Добавить файл</h1>
-{#{% if messages %}#}
-{#        {% for message in messages %}#}
-{#             {{ messages }}#}
-{#    {% endfor %}#}
-{#    {% endif %}#}
+    <h1>Загрузить файл</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

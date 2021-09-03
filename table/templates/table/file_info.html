@@ -2,33 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-
 <table>
     <tr>
-        <th>1</th>
-        <th>2</th>
+        <th>Word</th>
+        <th>TF</th>
+        <th>IDF</th>
     </tr>
-     {% for k,v in word_TF.items %}
+     {% for field in table %}
      <tr>
-        <td>{{ k }}</td>
-          <td>{{ v }}</td>
+        <td>{{ field.word }}</td>
+          <td>{{ field.word_TF }}</td>
+          <td>{{ field.word_IDF }}</td>
      </tr>
-
 {% endfor %}
 </table>
-{# {% for k,v in word_TF.items %}#}
-{#     <ul>#}
-{#        <li>#}
-{#            {{ k }} | {{ v }}#}
-{#        </li>#}
-{#     </ul>#}
-{##}
-{#{% endfor %}#}
-
-     {{ el }}
-
 </body>
 </html>
