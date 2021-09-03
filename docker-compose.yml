@@ -1,0 +1,28 @@
+version: "3"
+services:
+  #  webapp:
+  #    restart: always
+  #    build:
+  #      context: ../Pet_project_Django_ecommerce
+  #      dockerfile: ./Dockerfile
+  #    ports:
+  #    - 8000:8000
+  #    command: [ 'python', 'manage.py', 'runserver', '0.0.0.0:8000' ]
+  #    depends_on:
+  #      - redis
+  #      - postg
+  #
+
+  postg: # host в django
+    restart: always
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: 'postgres'  # name db в django
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'user'
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+# docker-compose up postg

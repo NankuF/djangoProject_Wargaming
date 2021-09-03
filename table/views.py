@@ -10,6 +10,11 @@ FILES = []
 
 
 def handle_uploaded_file(f, request):
+    """
+    Функция обрабатывает загружаемый файл.
+    Результат работы функции: слово, TF и IDF.
+    """
+
     name_file = File.objects.all()
     names = []
     for text in name_file:
@@ -82,6 +87,9 @@ def handle_uploaded_file(f, request):
 
 
 def upload_file(request):
+    """
+    Страница для загрузки файла
+    """
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
@@ -93,6 +101,9 @@ def upload_file(request):
 
 
 def file_read(request):
+    """
+    Страница с результатом анализа слов
+    """
     context = {
         'table': ResultTable.objects.all().order_by('-word_IDF')[:50],
         'title': 'Результат анализа',
